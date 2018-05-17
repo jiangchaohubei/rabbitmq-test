@@ -11,8 +11,9 @@ createServer(receiver1)
             console.info("==> API Started ...", port);
             console.info("Test: ");
             //GET method
-            console.info("==>$ curl 'http://127.0.0.1:%s/ClassA/hello?name=huangyong&age=23&year=1979'", port);
-            //POST method
-            console.info("==>$ curl -d 'name=huangyong&age=23&year=1979' 'http://127.0.0.1:%s/ClassA/hello'", port);
+            console.info("==>$ curl 'http://127.0.0.1:%s/receiver1/receiveMessage_work'", port);
+            console.info("==>$ curl 'http://127.0.0.1:%s/receiver1/receiveMessage_pubSub'", port);
+            console.info("==>$ curl 'http://127.0.0.1:%s/receiver1/receiveMessage_routing'", port);
+            console.info("==>$ curl 'http://127.0.0.1:%s/receiver1/receiveMessage_topic'", port);
         });
     })

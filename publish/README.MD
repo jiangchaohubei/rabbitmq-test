@@ -17,13 +17,13 @@ $ docker run -d --name rabbitmq_web  --publish 5671:5671 --publish 5672:5672 --p
 
 #测试rabbitmq5种策略模式
 分别启动：
-发布者mqPublish:
-接受者mqReceive,mqReceive2
+发布者publish:
+接受者receive1,receive2
 npm install
 npm start
 
 
-#简单模式
+#####简单模式######
 打开发布者： http://127.0.0.1:9999/publish/sendMessage_work?message=test
 打开一个接收者：  http://127.0.0.1:9998/receiver1/receiveMessage_work
 此时便能收到打开发布者时发送的消息
@@ -31,7 +31,7 @@ npm start
 (打开后该队列将一直处于监听状态，除非手动关闭，自动接收消息)
 
 
-#工作队列模式
+#####工作队列模式######
 打开发布者： http://127.0.0.1:9999/publish/sendMessage_work?message=test  （
 打开接收者1：  http://127.0.0.1:9998/receiver1/receiveMessage_work
 此时便能收到打开发布者时发送的消息
@@ -47,10 +47,10 @@ npm start
 多个消费者时交替执行队列中任务，每个消费者执行任务多少取决于其消费能力，一个任务只会被执行一次
 (可尝试多次发送消息，查看两个消费者交替执行任务,可在消费者内加入延时函数模拟消费能力不同)
 
-##简单模式与工作队列模式都是生产者直接将消息推送到队列中，此时队列已经创建，因此后创建的消费者监听该队列时会收到以往该队列中所有(未被处理)的消息
+#简单模式与工作队列模式都是生产者直接将消息推送到队列中，此时队列已经创建，因此后创建的消费者监听该队列时会收到以往该队列中所有(未被处理)的消息
 
 
-#发布订阅模式
+######发布订阅模式######
 打开发布者： http://127.0.0.1:9999/publish/sendMessage_pubSub?message=test
 先打开接收者1：  http://127.0.0.1:9998/receiver1/receiveMessage_pubSub
 此时没有消息（之前没有订阅）
@@ -68,7 +68,7 @@ npm start
 因此该模式只有订阅（即绑定队列和交换机）后才能收到消息，订阅之前的消息都不会收到；若交换机还没创建，提前订阅程序会报错
 
 
-#路由模式
+######路由模式######
 打开发布者： http://127.0.0.1:9999/publish/sendMessage_routing?message=test
 先打开接收者1：  http://127.0.0.1:9998/receiver1/receiveMessage_routing
 此时没有消息（之前没有订阅）
@@ -85,7 +85,7 @@ npm start
 
 
 
-#通配符模式
+######通配符模式######
 打开发布者： http://127.0.0.1:9999/publish/sendMessage_topic?message=test
 先打开接收者1：  http://127.0.0.1:9998/receiver1/receiveMessage_topic
 此时没有消息（之前没有订阅）
