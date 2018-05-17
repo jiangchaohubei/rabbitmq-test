@@ -1,6 +1,3 @@
-# rabbitmq-test
-docker安装rabbitmq，并测试rabbitmq的5中策略模式
-
 #mac安装docker
 $ brew cask install docker
 
@@ -104,5 +101,4 @@ npm start
 receiver1 的通配符路由为："abb.#"  ，因此能接收到所有以 abb开头的路由 ，能接收3条消息
 receiver2 的通配符路由为："*.b.#"  ，因此能接收到所有以 b为中间单词的路由 ，能接收1条消息
 （可尝试自己修改通配符路由，熟悉匹配规则）
-
 
